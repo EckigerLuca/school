@@ -1,0 +1,16 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.bg-light-dark {
+	background-color: #36393f !important;
+}
+
+.mainHeading:hover {
+	text-decoration-color: #618eb1;
+	transition: text-decoration-color 0.2s ease-in-out;
+}
+.mainHeading {
+	text-decoration-color: white;
+	transition: text-decoration-color 0.2s ease-in-out;
+}
