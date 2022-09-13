@@ -14,3 +14,11 @@ html {
 	text-decoration-color: white;
 	transition: text-decoration-color 0.2s ease-in-out;
 }
+
+.vl {
+	border-left: 1.5px solid white;
+	height: 100%;
+	position: relative;
+	left: 50%;
+	top: -1vh;
+}
