@@ -21,4 +21,12 @@ html {
 	position: relative;
 	left: 50%;
 	top: -1vh;
+	width: 0px;
+}
+
+#topBtn {
+	display: none;
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
 }
