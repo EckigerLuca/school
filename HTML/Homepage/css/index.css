@@ -7,7 +7,8 @@ html {
 }
 
 .mainHeading:hover {
-	text-decoration-color: #618eb1;
+	/* text-decoration-color: #618eb1; */
+    text-decoration-color: #860403;
 	transition: text-decoration-color 0.2s ease-in-out;
 }
 .mainHeading {
