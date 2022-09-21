@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Erklärung</title>
+    <link rel="stylesheet" href="../Homepage/css/bootstrap/bootstrap.css">
+    <script src="../Homepage/js/bootstrap/bootstrap.bundle.js"></script>
+    <script src="./index.js"></script>
+    <style>
+        #box {
+            width: 500px;
+            height: 400px;
+            padding: 1em;
+            border: 1em solid lightblue;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <div>
+        <div id="box" class="position-absolute top-50 start-50 translate-middle text-center rounded-3">
+            <form class="mt-3">
+                <div class="mb-3">
+                    <input id="menge1" value="3" name="menge1" size="3" onchange="basispreis()"> <!-- menge1 = zum berechnen von basismenge -->
+                    <select name="einheit1" id="einheit1" onchange="einheitChange(), basispreis()">
+                        <option value="Apfel" selected>stck. Apfel</option>
+                        <option value="Birne">stck. Birne</option>
+                        <option value="Kartoffel">kg. Kartoffel</option>
+                        <option value="Tomaten">kg. Tomate</option>
+                    </select>
+                    kosten
+                    <input id="menge2" value="6" name="menge2" size="3" onchange="basispreis()"> €. <!-- menge2 = Preis von menge1 Äpfel -->
+                    <br><br>
+                    1
+                    <span class="einheit1">Apfel</span>
+                    kostet
+                    <code><span id="basismenge"></span></code> €. <!-- basismenge = menge2 / menge1 -->
+                    <br><br>
+                    Was kosten
+                    <input id="menge3" value="10" name="menge3" size="3" onchange="mehrfachpreis()">
+                    <span class="einheit1">Apfel</span>?
+                    <br><br>
+                    <code><span id="menge4"></span></code>
+                    <span class="einheit1">Apfel</span>
+                    kosten
+                    <code><span id="menge5"></span></code> €. <!-- menge5 = menge4 * basispreis -->
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
