@@ -4,9 +4,25 @@ function einheitChange() {
     const einheit1Span = document.getElementsByClassName("einheit1");
 
     
-    for (let i = 0; i < 3; i++) {
-        einheit1Span[i].innerHTML=einheit1;
-        
+    if (einheit1 === "Apfel") {
+        einheit1Span[0].innerHTML = "Apfel";
+        einheit1Span[1].innerHTML = "Äpfel";
+        einheit1Span[2].innerHTML = "Äpfel";
+    }
+    if (einheit1 === "Birne") {
+        einheit1Span[0].innerHTML = "Birne";
+        einheit1Span[1].innerHTML = "Birnen";
+        einheit1Span[2].innerHTML = "Birnen";
+    }
+    if (einheit1 === "Kartoffel") {
+        einheit1Span[0].innerHTML = "kg. Kartoffeln";
+        einheit1Span[1].innerHTML = "kg. Kartoffeln";
+        einheit1Span[2].innerHTML = "kg. Kartoffeln";
+    }
+    if (einheit1 === "Tomate") {
+        einheit1Span[0].innerHTML = "kg. Tomate";
+        einheit1Span[1].innerHTML = "kg. Tomaten";
+        einheit1Span[2].innerHTML = "kg. Tomaten";
     }
 }
 
