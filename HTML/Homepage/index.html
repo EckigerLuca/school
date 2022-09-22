@@ -7,6 +7,7 @@
 	<title>EckigerLuca | Home</title>
 	<link rel="stylesheet" href="./css/index.css">
 	<script src="./js/index.js"></script>
+	<script defer src="./js/app.js"></script>
 	<link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
 	<!-- Bootstrap CSS & JavaScript -->
 	<link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
@@ -15,282 +16,297 @@
 	<link rel="stylesheet" href="./css/bootstrap/bootstrap-icons-1.9.1/bootstrap-icons.css">
 </head>
 <body class="bg-light-dark text-white" id="home">
-	<button onclick="topFunction()" id="topBtn" title="Go to top" type="button" class="btn btn-light"><i class="bi bi-arrow-up"></i></button> 
-	<div>
-		<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#home">
-					<img src="./assets/images/favicon.png" alt="Logo" width="30" class="d-inline-block align-text-top">
-					EckigerLuca
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a href="#about" class="nav-link">About</a>
-						</li>
-						<li class="nav-item">
-							<a href="#projects" class="nav-link">Projects</a>
-						</li>
-						<li class="nav-item">
-							<a href="#links" class="nav-link">Links</a>
-						</li>
-						<li class="nav-item">
-							<a href="#contact" class="nav-link">Contact</a>
-						</li>
-					</ul>
+
+	<section id="nav" class="hidden">
+		<div>
+			<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#home">
+						<img src="./assets/images/favicon.png" alt="Logo" width="30" class="d-inline-block align-text-top">
+						EckigerLuca
+					</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a href="#about" class="nav-link">About</a>
+							</li>
+							<li class="nav-item">
+								<a href="#projects" class="nav-link">Projects</a>
+							</li>
+							<li class="nav-item">
+								<a href="#links" class="nav-link">Links</a>
+							</li>
+							<li class="nav-item">
+								<a href="#contact" class="nav-link">Contact</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</nav>
-	</div>
+			</nav>
+		</div>
+	</section>
 
-	<div class="container mt-5 ml-3 mr-3 pb-5">
-		<div class="row row-cols-1 row-cols-md-2 mb-5">
-			<div class="col">
-				<center>
-					<h1 class="display-5">Welcome to my <u class="mainHeading">Homepage!</u></h1>
-					<p class="lead">
-						Here you can find some stuff about me and my projects!
-						<br>
-
-						<div>
-							<i>Scroll down or click the arrow for more!</i>
+	<section id="landing" class="hidden">
+		<div class="container mt-5 ml-3 mr-3 pb-5">
+			<div class="row row-cols-1 row-cols-md-2 mb-5">
+				<div class="col">
+					<center>
+						<h1 class="display-5">Welcome to my <u class="mainHeading">Homepage!</u></h1>
+						<p class="lead">
+							Here you can find some stuff about me and my projects!
 							<br>
-							<a href="#about" class="text-decoration-none text-white"><i class="bi bi-arrow-down display-1"></i></a>
-						</div>
-					</p>
-				</center>
-			</div>
-			<div class="col">
-				<center>
-					<img class="img-fluid" src="./assets/images/web-art-small.png" alt="Banner Art">
-				</center>
+
+							<div>
+								<i>Scroll down or click the arrow for more!</i>
+								<br>
+								<a href="#about" class="text-decoration-none text-white"><i class="bi bi-arrow-down display-1"></i></a>
+							</div>
+						</p>
+					</center>
+				</div>
+				<div class="col">
+					<center>
+						<img class="img-fluid" src="./assets/images/web-art-small.png" alt="Banner Art">
+					</center>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<div id="about" class="bg-dark">
-		<div class="container mt-3 ml-3 mr-3">
-			<div class="row row-cols-2">
-				<div class="col col-8 mt-3">
-					<h1 class="display-6"><u class="mainHeading">About Me</u></h1>
-				</div>
-				<div class="col col-4 mt-3 text-center"><h1 class="display-6">Timeline</h1></div>
+		<section class="hidden">
+			<div>
+				<div class="container mt-3 ml-3 mr-3">
+					<div class="row row-cols-2">
+						<div class="col col-8 mt-3">
+							<h1 class="display-6"><u class="mainHeading">About Me</u></h1>
+						</div>
+						<div class="col col-4 mt-3 text-center"><h1 class="display-6">Timeline</h1></div>
 
-				<div id="start" class="col col-8 bg-light-dark rounded-3 p-2">
-					<p class="lead">
-						First of all, nice to meet you! ツ
-						<br>
-						My name is Luca and I'm a 15 years old dude from Germany who enjoys to code and design stuff. I will try to cover as many points as possible about my journey, so enjoy!
-					</p>
-				</div>
-				<div class="col col-4 p-2">
-					<p class="lead text-center"><a href="#start" class="text-decoration-none text-white">Start</a></p>
-					<div class="vl"></div>
-				</div>
-				
+						<div id="start" class="col col-8 bg-light-dark rounded-3 p-2">
+							<p class="lead">
+								First of all, nice to meet you! ツ
+								<br>
+								My name is Luca and I'm a 15 years old dude from Germany who enjoys to code and design stuff. I will try to cover as many points as possible about my journey, so enjoy!
+							</p>
+						</div>
+						<div class="col col-4 p-2">
+							<p class="lead text-center"><a href="#start" class="text-decoration-none text-white">Start</a></p>
+							<div class="vl"></div>
+						</div>
 
-				<div id="2018" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
-					<p class="lead">
-						I had my first encounter with video editing in 2018, which was also the year where I uploaded my first YouTube Video.
-						<br>
-						Also in this year, I decided to learn how to use After Effects to create those <a href="https://youtu.be/s8XIgR5OGJc" target="_blank" rel="noopener noreferrer">Trap Nation</a> like Audio Visualizers. This somehow got me into making somewhat professional Intros with Cinema 4D and After Effects. You can watch it <a href="https://youtu.be/D6Gx3osCGSw" target="_blank" rel="noopener noreferrer">here</a>!
-						<br><br>
-						Also in 2018 someone who I met on a Minecraft Server asked me if I wanted to join his project. Soon after that conversation had I turned into a Co-Owner of a Minecraft Server and had gained some experiences with Linux Servers. I then tried to learn Java so I could help with Minecraft Plug-Ins, well that didn't go as good as planned and so I abandoned coding and focused on other things. Shortly after that, the project died.
-						<br><br>
-						I then managed to join another project as a Moderator on a Minecraft Server, <a href="http://infinityheroes.de" target="_blank" rel="noopener noreferrer">InfinityHeroes.de</a>. I left by the end of 2018 because of inactivity and to focus more on school. It was still pretty nice though!
-					</p>
-				</div>
-				<div class="col col-4 mt-4 p-2">
-					<p class="lead text-center"><a href="#2018" class="text-decoration-none text-white">2018</a></p>
-					<div class="vl"></div>
-				</div>
-
-
-				<div id="2020" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
-					<p class="lead">
-						The 11th March 2020, official begin of the Corona Pandemics.
-						Due to Lockdowns and schools being closed, I had enough time to start coding, again. But this time with a goal, my own, free, non pay-to-win <a href="http://discord.com" target="_blank" rel="noopener noreferrer">Discord</a> Bot!
-						<br>
-						And with the creation of the Bot Account <code>Darling#2476</code> on the 12th of August a really big journey began. I watched so many YouTube tutorials to get an idea on how to code a Discord Bot and then I found something perfect for me, <a href="https://github.com/Rapptz/discord.py" target="_blank" rel="noopener noreferrer"><code>Discord.py</code></a>. Thanks to this Library I managed to build my first real application, and it worked well! The bot quickly reached 20 Servers, but sadly Discord made some big changes by the end of 2020.
-						<br><br>
-						2020 was also a big year of designing, I started to create the somewhat "cringy" anime edits, of which some actually kinda blew off. I also started creating stream assets for friends like banners, overlays and so on.
-					</p>
-				</div>
-				<div class="col col-4 mt-4 p-2">
-					<p class="lead text-center"><a href="#2020" class="text-decoration-none text-white">2020</a></p>
-					<div class="vl"></div>
-				</div>
+						<div id="2018" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
+							<p class="lead">
+								I had my first encounter with video editing in 2018, which was also the year where I uploaded my first YouTube Video.
+								<br>
+								Also in this year, I decided to learn how to use After Effects to create those <a href="https://youtu.be/s8XIgR5OGJc" target="_blank" rel="noopener noreferrer">Trap Nation</a> like Audio Visualizers. This somehow got me into making somewhat professional Intros with Cinema 4D and After Effects. You can watch it <a href="https://youtu.be/D6Gx3osCGSw" target="_blank" rel="noopener noreferrer">here</a>!
+								<br><br>
+								Also in 2018 someone who I met on a Minecraft Server asked me if I wanted to join his project. Soon after that conversation had I turned into a Co-Owner of a Minecraft Server and had gained some experiences with Linux Servers. I then tried to learn Java so I could help with Minecraft Plug-Ins, well that didn't go as good as planned and so I abandoned coding and focused on other things. Shortly after that, the project died.
+								<br><br>
+								I then managed to join another project as a Moderator on a Minecraft Server, <a href="http://infinityheroes.de" target="_blank" rel="noopener noreferrer">InfinityHeroes.de</a>. I left by the end of 2018 because of inactivity and to focus more on school. It was still pretty nice though!
+							</p>
+						</div>
+						<div class="col col-4 mt-4 p-2">
+							<p class="lead text-center"><a href="#2018" class="text-decoration-none text-white">2018</a></p>
+							<div class="vl"></div>
+						</div>
 
 
-				<div id="2021" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
-					<p class="lead">
-						Still locked down, Discord announced some HUGE Api changes. By turning the <code>Message Content Intent</code> (needed to fetch commands, e. g. <code>!help</code>) into a privileged one, they forced Devs to use the new Slash Commands until April 2022. Around eight months left to do something but sadly the maintainer of <code>Discord.py</code> announced to abandon the library.
-						<br>
-						Now, there were two options, wait until something happens <u>or</u> switch libraries.
-						<br>
-						I decided to switch to be safe since I wanted to make my Bot "big". But what to use? Around that time <a href="http://github.com/sillysoon" target="_blank" rel="noopener noreferrer">Silly (SillySoon)</a> started to code his own bot for fun, but using <a href="http://nodejs.org" target="_blank" rel="noopener noreferrer"><code>Node.js (JavaScript)</code></a>. I learned how to use Node and recreated Darling in JavaScript using <a href="http://discord.js.org" target="_blank" rel="noopener noreferrer">discord.js</a>.
-						<br>
-						And on the 9th November I released Darling with Slash Commands.
-						<br><br>
-						I also had my first collab in 2021 with <a href="http://github.com/Sniperspyder2550" target="_blank" rel="noopener noreferrer">Henry (Sniperspyder2550)</a>! (I promise you, we will continue Cryptoreun soon&trade;)
-						<br>
-						Anyway, 2021 is almost over, I met many people, continued Darling and added some new stuff. I even hit 40 Servers on Christmas!!
-					</p>
-				</div>
-				<div class="col col-4 mt-4 p-2">
-					<p class="lead text-center"><a href="#2021" class="text-decoration-none text-white">2021</a></p>
-					<div class="vl"></div>
-				</div>
+						<div id="2020" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
+							<p class="lead">
+								The 11th March 2020, official begin of the Corona Pandemics.
+								Due to Lockdowns and schools being closed, I had enough time to start coding, again. But this time with a goal, my own, free, non pay-to-win <a href="http://discord.com" target="_blank" rel="noopener noreferrer">Discord</a> Bot!
+								<br>
+								And with the creation of the Bot Account <code>Darling#2476</code> on the 12th of August a really big journey began. I watched so many YouTube tutorials to get an idea on how to code a Discord Bot and then I found something perfect for me, <a href="https://github.com/Rapptz/discord.py" target="_blank" rel="noopener noreferrer"><code>Discord.py</code></a>. Thanks to this Library I managed to build my first real application, and it worked well! The bot quickly reached 20 Servers, but sadly Discord made some big changes by the end of 2020.
+								<br><br>
+								2020 was also a big year of designing, I started to create the somewhat "cringy" anime edits, of which some actually kinda blew off. I also started creating stream assets for friends like banners, overlays and so on.
+							</p>
+						</div>
+						<div class="col col-4 mt-4 p-2">
+							<p class="lead text-center"><a href="#2020" class="text-decoration-none text-white">2020</a></p>
+							<div class="vl"></div>
+						</div>
 
 
-				<div id="2022" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
-					<p class="lead">
-						Here we are, 2022. I announced some big features like a Dashboard right before New Year's Eve, so I started to learn how to use HTML and CSS. This went quite well, but since then no new update arrived. I was simply yo lazy UNTIL I found my way back to InfinityHeroes:
-						<br>
-						They were searching for someone who could create a bot that connects their website with their Discord server in order to publish announcements on the website. This was in 2021, however the part in 2022 is more important because I actually maintained the project and so <a href="https://github.com/ifheroes/discord-website-bot-js" target="_blank" rel="noopener noreferrer">discord-website-bot-js</a> was born. Shortly after that, I was added to their GitHub Team and at that point I finally had my shit together.
-						<br>
-						I started working on the website of Darling, but not just a website, a website with a Dashboard to manage the Bot!
-						<br>
-						In June, everything was done, except the homepage which still is not done. I'm kinda ashamed of that fact...
-						<br>
-						Well, maybe this September or October <code>Darling 2.0</code> will roll out, who knows.
-					</p>
-				</div>
-				<div class="col col-4 mt-4 p-2">
-					<p class="lead text-center"><a href="#2022" class="text-decoration-none text-white">2022</a></p>
-					<div class="vl"></div>
-				</div>
+						<div id="2021" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
+							<p class="lead">
+								Still locked down, Discord announced some HUGE Api changes. By turning the <code>Message Content Intent</code> (needed to fetch commands, e. g. <code>!help</code>) into a privileged one, they forced Devs to use the new Slash Commands until April 2022. Around eight months left to do something but sadly the maintainer of <code>Discord.py</code> announced to abandon the library.
+								<br>
+								Now, there were two options, wait until something happens <u>or</u> switch libraries.
+								<br>
+								I decided to switch to be safe since I wanted to make my Bot "big". But what to use? Around that time <a href="http://github.com/sillysoon" target="_blank" rel="noopener noreferrer">Silly (SillySoon)</a> started to code his own bot for fun, but using <a href="http://nodejs.org" target="_blank" rel="noopener noreferrer"><code>Node.js (JavaScript)</code></a>. I learned how to use Node and recreated Darling in JavaScript using <a href="http://discord.js.org" target="_blank" rel="noopener noreferrer">discord.js</a>.
+								<br>
+								And on the 9th November I released Darling with Slash Commands.
+								<br><br>
+								I also had my first collab in 2021 with <a href="http://github.com/Sniperspyder2550" target="_blank" rel="noopener noreferrer">Henry (Sniperspyder2550)</a>! (I promise you, we will continue Cryptoreun soon&trade;)
+								<br>
+								Anyway, 2021 is almost over, I met many people, continued Darling and added some new stuff. I even hit 40 Servers on Christmas!!
+							</p>
+						</div>
+						<div class="col col-4 mt-4 p-2">
+							<p class="lead text-center"><a href="#2021" class="text-decoration-none text-white">2021</a></p>
+							<div class="vl"></div>
+						</div>
 
 
-				<div id="end" class="col col-8 bg-light-dark rounded-3 p-2 mt-4 mb-4">
-					<p class="lead">
-						Thank you for reading through my journey. I now want to mention and thank some people who I met during this time.
+						<div id="2022" class="col col-8 bg-light-dark rounded-3 p-2 mt-4">
+							<p class="lead">
+								Here we are, 2022. I announced some big features like a Dashboard right before New Year's Eve, so I started to learn how to use HTML and CSS. This went quite well, but since then no new update arrived. I was simply yo lazy UNTIL I found my way back to InfinityHeroes:
+								<br>
+								They were searching for someone who could create a bot that connects their website with their Discord server in order to publish announcements on the website. This was in 2021, however the part in 2022 is more important because I actually maintained the project and so <a href="https://github.com/ifheroes/discord-website-bot-js" target="_blank" rel="noopener noreferrer">discord-website-bot-js</a> was born. Shortly after that, I was added to their GitHub Team and at that point I finally had my shit together.
+								<br>
+								I started working on the website of Darling, but not just a website, a website with a Dashboard to manage the Bot!
+								<br>
+								In June, everything was done, except the homepage which still is not done. I'm kinda ashamed of that fact...
+								<br>
+								Well, maybe this September or October <code>Darling 2.0</code> will roll out, who knows.
+							</p>
+						</div>
+						<div class="col col-4 mt-4 p-2">
+							<p class="lead text-center"><a href="#2022" class="text-decoration-none text-white">2022</a></p>
+							<div class="vl"></div>
+						</div>
 
-						<div class="row row-cols-1 row-cols-md-3">
-							<div class="col text-center">
-								<p class="lead">
-									<a href="https://github.com/sniperspyder2550" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
-										Henry
+
+						<div id="end" class="col col-8 bg-light-dark rounded-3 p-2 mt-4 mb-4">
+							<p class="lead">
+								Thank you for reading through my journey. I now want to mention and thank some people who I met during this time.
+
+								<div class="row row-cols-1 row-cols-md-3">
+									<div class="col text-center">
+										<p class="lead">
+											<a href="https://github.com/sniperspyder2550" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
+												Henry
+												<br>
+												(Sniperspyder2550)
+											</a>
+										</p>
+									</div>
+									<div class="col text-center">
+										<p class="lead">
+											<a href="https://github.com/eckigermike" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
+												Mike
+												<br>
+												(EckigerMike)
+											</a>
+										</p>
+									</div>
+									<div class="col text-center">
+										<p class="lead">
+											<a href="https://github.com/sillysoon" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
+												Silly
+												<br>
+												(SillySoon)
+											</a>
+										</p>
+									</div>
+								</div>
+								<br>
+								<div class="text-center">
+									<p class="lead">
+										Thank you all for supporting me in any way! You really helped me alot! You made me smile and laugh, gave me new ideas.
 										<br>
-										(Sniperspyder2550)
-									</a>
-								</p>
-							</div>
-							<div class="col text-center">
-								<p class="lead">
-									<a href="https://github.com/eckigermike" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
-										Mike
+										You all have turned into really important friends for me.
 										<br>
-										(EckigerMike)
-									</a>
-								</p>
-							</div>
-							<div class="col text-center">
-								<p class="lead">
-									<a href="https://github.com/sillysoon" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
-										Silly
-										<br>
-										(SillySoon)
-									</a>
-								</p>
+										Thank you ♥
+									</p>
+								</div>
+
+							</p>
+						</div>
+						<div class="col col-4 mt-4 p-2 mb-4">
+							<p class="lead text-center"><a href="#end" class="text-decoration-none text-white">End</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<section class="hidden">
+		<div id="projects" class="mt-5 mb-3">
+			<div class="container mt-3 ml-3 mr-3">
+				<h1 class="display-5"><u class="mainHeading">Projects</u></h1>
+				<p class="lead">Here you can find my current/finished projects.</p>
+				<div class="container">
+					<div class="row row-cols-1 row-cols-md-2">
+						<div class="col">
+							<h1 class="display-6"><u class="mainHeading"><a href="https://darling-bot.xyz" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Darling.</a></u></h1>
+							<p class="lead">
+								A simple but powerful Discord bot, which is getting updated regularly.
+								<br>
+								<br>
+								<i>
+									Currently working on the website including a dashboard.
+									<br>
+									Stay tuned!
+								</i>
+							</p>
+						</div>
+						<div class="col">
+							<div class="row">
+								<div id="carouselDarlingControls" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+										</div>
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselDarlingControls" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselDarlingControls" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
 							</div>
 						</div>
-						<br>
-						<div class="text-center">
+
+						<div class="col mt-4">
+							<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+						</div>
+						<div class="col mt-4">
+							<h1 class="display-6"><u class="mainHeading"><a href="https://github.com/eckigerluca/hetzner-dns-updater" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Hetzner DNS Updater</a></u></h1>
 							<p class="lead">
-								Thank you all for supporting me in any way! You really helped me alot! You made me smile and laugh, gave me new ideas.
-								<br>
-								You all have turned into really important friends for me.
-								<br>
-								Thank you ♥
+								A script used to automatically update an A Record with the Hetzner DNS API when the public IPv4-Adress changes.
 							</p>
 						</div>
 
-					</p>
-				</div>
-				<div class="col col-4 mt-4 p-2 mb-4">
-					<p class="lead text-center"><a href="#end" class="text-decoration-none text-white">End</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="projects" class="mt-5 mb-3">
-		<div class="container mt-3 ml-3 mr-3">
-			<h1 class="display-5"><u class="mainHeading">Projects</u></h1>
-			<p class="lead">Here you can find my current/finished projects.</p>
-			<div class="container">
-				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col">
-						<h1 class="display-6"><u class="mainHeading"><a href="https://darling-bot.xyz" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Darling.</a></u></h1>
-						<p class="lead">
-							A simple but powerful Discord bot, which is getting updated regularly.
-							<br>
-							<br>
-							<i>
-								Currently working on the website including a dashboard.
-								<br>
-								Stay tuned!
-							</i>
-						</p>
-					</div>
-					<div class="col">
-                        <div class="row">
-                            <div id="carouselDarlingControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDarlingControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselDarlingControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-					<div class="col mt-4">
-						<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
-					</div>
-					<div class="col mt-4">
-						<h1 class="display-6"><u class="mainHeading"><a href="https://github.com/eckigerluca/hetzner-dns-updater" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Hetzner DNS Updater</a></u></h1>
-						<p class="lead">
-							A script used to automatically update an A Record with the Hetzner DNS API when the public IPv4-Adress changes.
-						</p>
-					</div>
-
-					<div class="col mt-4">
-						<h1 class="display-6"><u class="mainHeading"><a href="https://github.com/ifheroes/discord-website-bot-js" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">InfinityHeroes Discord Bot</a></u></h1>
-						<p class="lead">
-							A script used to automatically update an A Record with the Hetzner DNS API when the public IPv4-Adress changes.
-						</p>
-					</div>
-					<div class="col mt-4">
-						<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+						<div class="col mt-4">
+							<h1 class="display-6"><u class="mainHeading"><a href="https://github.com/ifheroes/discord-website-bot-js" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">InfinityHeroes Discord Bot</a></u></h1>
+							<p class="lead">
+								A script used to automatically update an A Record with the Hetzner DNS API when the public IPv4-Adress changes.
+							</p>
+						</div>
+						<div class="col mt-4">
+							<img src="https://via.placeholder.com/2048x1024" class="d-block w-100" alt="...">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div id="links" class="mt-5 mb-3">
-		<div class="container mt-3 ml-3 mr-3">
-			<h1 class="display-5"><u class="mainHeading">Links</u></h1>
+	<section class="hidden">
+		<div id="links" class="mt-5 mb-3">
+			<div class="container mt-3 ml-3 mr-3">
+				<h1 class="display-5"><u class="mainHeading">Links</u></h1>
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<section class="hidden">
+		<div id="contact" class="mt-5 mb-3"></div>
+	</section>
 </body>
 </html>

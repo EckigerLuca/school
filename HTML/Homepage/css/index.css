@@ -25,9 +25,33 @@ html {
 	width: 0px;
 }
 
-#topBtn {
-	display: none;
-	position: fixed;
-	right: 2rem;
-	bottom: 2rem;
+#landing {
+	display: grid;
+	place-items: center;
+	align-content: center;
+}
+
+section {
+	min-height: 100vh;
+}
+
+#nav {
+	min-height: 0;
+}
+
+.hidden {
+	opacity: 0;
+	transform: translateZ(-100%);
+	transition: all 1s;
+}
+
+.show {
+	opacity: 1;
+	transform: translateZ(0);
+}
+
+@media(prefers-reduced-motion) {
+	.hidden {
+		transition: none;
+	}
 }
