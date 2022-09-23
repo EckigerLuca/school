@@ -1,4 +1,4 @@
 theme: jekyll-theme-minimal
 title: Luca's GitHub Pages für die Schule
 description: Alles was mit Schule zu tun hat ist hier
-remote-theme: cotes2020/jekyll-theme-chirpy
+remote_theme: "mmistakes/jekyll-theme-basically-basic@1.4.5"
