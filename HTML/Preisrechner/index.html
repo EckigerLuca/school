@@ -4,49 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Div Erklärung</title>
+    <title>Preisrechner</title>
     <link rel="stylesheet" href="../Homepage/css/bootstrap/bootstrap.css">
     <script src="../Homepage/js/bootstrap/bootstrap.bundle.js"></script>
     <script src="./index.js"></script>
+    <script type="text/javascript" src="./exchangeRate.js"></script>
     <style>
         #box {
-            width: 500px;
-            height: 400px;
-            padding: 1em;
-            border: 1em solid lightblue;
+            padding: 5%;
+            padding-left: 7%;
+            padding-right: 7%;
+            border: 0.1em solid rgb(255, 255, 255);
+            display: grid;
+	        place-items: center;
+	        align-content: center;
+        }
+        
+        var {
+            color: rgba(255, 255, 255, 0.63) !important;
         }
     </style>
 </head>
 <body class="bg-dark text-white">
     <div>
-        <div id="box" class="position-absolute top-50 start-50 translate-middle text-center rounded-3">
-            <form class="mt-3">
-                <div class="mb-3">
-                    <input id="menge1" value="3" name="menge1" size="3" onchange="basispreis()"> <!-- menge1 = zum berechnen von basismenge -->
-                    <select name="einheit1" id="einheit1" onchange="einheitChange(), basispreis()">
-                        <option value="Apfel" selected>stck. Apfel</option>
-                        <option value="Birne">stck. Birne</option>
-                        <option value="Kartoffel">kg. Kartoffel</option>
-                        <option value="Tomaten">kg. Tomate</option>
-                    </select>
-                    kosten
-                    <input id="menge2" value="6" name="menge2" size="3" onchange="basispreis()"> €. <!-- menge2 = Preis von menge1 Äpfel -->
-                    <br><br>
-                    1
-                    <span class="einheit1">Apfel</span>
-                    kostet
-                    <code><span id="basismenge"></span></code> €. <!-- basismenge = menge2 / menge1 -->
-                    <br><br>
-                    Was kosten
-                    <input id="menge3" value="10" name="menge3" size="3" onchange="mehrfachpreis()">
-                    <span class="einheit1">Apfel</span>?
-                    <br><br>
-                    <code><span id="menge4"></span></code>
-                    <span class="einheit1">Apfel</span>
-                    kosten
-                    <code><span id="menge5"></span></code> €. <!-- menge5 = menge4 * basispreis -->
-                </div>
-            </form>
+        <div id="box" class="position-absolute top-50 start-50 translate-middle text-center rounded-3 shadow-lg">
+            <div id="inner">
+                <form class="mt-3 mb-3">
+                    <div class="mb-3">
+                        <input id="menge1" value="3" name="menge1" size="3" onchange="basispreis()"> <!-- menge1 = zum berechnen von basismenge -->
+                        <select name="einheit1" id="einheit1" onchange="einheitChange(), basispreis()">
+                            <option value="Apfel" selected>stck. Apfel</option>
+                            <option value="Birne">stck. Birne</option>
+                            <option value="Kartoffel">kg. Kartoffel</option>
+                            <option value="Tomaten">kg. Tomate</option>
+                        </select>
+                        kosten
+                        <input id="menge2" value="6" name="menge2" size="3" onchange="basispreis()"><!-- menge2 = Preis von menge1 Äpfel -->
+                        <span class="currency"></span>.
+                        <br><br>
+                        1
+                        <span class="einheit1">Apfel</span>
+                        kostet
+                        <var><span id="basismenge"></span></var> <!-- basismenge = menge2 / menge1 -->
+                        <span class="currency"></span>.
+                        <br><br>
+                        Was kosten
+                        <input id="menge3" value="10" name="menge3" size="3" onchange="mehrfachpreis()">
+                        <span class="einheit1">Apfel</span>?
+                        <br><br>
+                        <var><span id="menge4"></span></var>
+                        <span class="einheit1">Apfel</span>
+                        kosten
+                        <var><span id="menge5"></span></var><!-- menge5 = menge4 * basispreis -->
+                        <span class="currency"></span>.
+                        <br><br>
+
+                        Währung auswählen <br>
+
+                        <input type="radio" name="currency" id="euro" value="&#8364;" checked onchange="currencyChange()">
+                        <label for="euro">&#8364;</label>
+
+                        <input type="radio" name="currency" id="dollar" value="&#36;" onchange="currencyChange()">
+                        <label for="dollar">&#36;</label>
+
+                        <input type="radio" name="currency" id="yen" value="&#165;" onchange="currencyChange()">
+                        <label for="yen">&#165;</label>
+
+                        <br>
+                        <var>Wechselkurse vom 23.09.2022 17:55 Uhr</var>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>

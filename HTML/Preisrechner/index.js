@@ -50,8 +50,123 @@ function mehrfachpreis() {
     menge5.innerHTML = customPreis;
 }
 
+function currencyCalculator(oldCurrency, newCurrency, oldPrice) {
+    let newPrice;
+
+    // euro
+    if (oldCurrency == "&#8364;") {
+        switch (newCurrency) {
+            // euro
+            case "&#8364;": {
+                newPrice = oldPrice;
+                break;
+            }
+
+            // dollar
+            case "&#36;": {
+                newPrice = (oldPrice * exchangeRates.eur.usd).toFixed(2);
+                break;
+            }
+
+            // yen
+            case "&#165;": {
+                newPrice = (oldPrice * exchangeRates.eur.yen).toFixed(2);
+                break;
+            }
+        }
+    }
+
+    // dollar
+    if (oldCurrency == "&#36;") {
+        switch (newCurrency) {
+            // euro
+            case "&#8364;": {
+                newPrice = (oldPrice * exchangeRates.usd.eur).toFixed(2);
+                break;
+            }
+
+            // dollar
+            case "&#36;": {
+                newPrice = oldPrice;
+                break;
+            }
+
+            // yen
+            case "&#165;": {
+                newPrice = (oldPrice * exchangeRates.usd.yen).toFixed(2);
+                break;
+            }
+        }
+    }
+
+    // yen
+    if (oldCurrency == "&#165;") {
+        switch (newCurrency) {
+            // euro
+            case "&#8364;": {
+                newPrice = (oldPrice * exchangeRates.yen.eur).toFixed(2);
+                break;
+            }
+
+            // dollar
+            case "&#36;": {
+                newPrice = (oldPrice * exchangeRates.yen.usd).toFixed(2);
+                break;
+            }
+
+            // yen
+            case "&#165;": {
+                newPrice = oldPrice;
+                break;
+            }
+        }
+    }
+    return newPrice;
+}
+
+function currencyChange() {
+    const currencys = document.getElementsByName("currency");
+    let currency = document.getElementsByClassName("currency");
+
+    let oldCurrency;
+    let newCurrency;
+
+    for (i = 0; i < 3; i++) {
+        if (currencys[i].checked) {
+            for (j = 0; j < 3; j++) {
+                oldCurrency = currency[j].innerHTML;
+                newCurrency = currencys[i].value;
+                currency[j].innerHTML = currencys[i].value;
+            }
+        }
+    }
+
+    if (oldCurrency == "€") { oldCurrency = "&#8364;" }
+    if (oldCurrency == "$") { oldCurrency = "&#36;" }
+    if (oldCurrency == "¥") { oldCurrency = "&#165;" }
+
+    if (newCurrency == "€") { newCurrency = "&#8364;" }
+    if (newCurrency == "$") { newCurrency = "&#36;" }
+    if (newCurrency == "¥") { newCurrency = "&#165;" }
+
+    exchange(oldCurrency ? oldCurrency : "&#8364;", newCurrency);
+
+}
+
+function exchange(oldCurrency, newCurrency) {
+    let customPrice = document.getElementById("menge2").value;
+
+    let newPrice = currencyCalculator(oldCurrency, newCurrency, customPrice)
+
+    document.getElementById("menge2").value = newPrice;
+
+    basispreis();
+    mehrfachpreis();
+}
+
 window.addEventListener('load', (event) => {
     einheitChange();
     basispreis();
     mehrfachpreis()
+    currencyChange();
 });
