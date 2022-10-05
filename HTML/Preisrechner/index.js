@@ -165,6 +165,7 @@ function exchange(oldCurrency, newCurrency) {
 }
 
 window.addEventListener('load', (event) => {
+    getExchangeRates();
     einheitChange();
     basispreis();
     mehrfachpreis()
