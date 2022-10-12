@@ -1,0 +1,9 @@
+Bear https://placebear.com/
+Kitten https://placekitten.com/
+Dog https://random.dog/woof.json
+Duck https://random-d.uk/api
+Fox https://randomfox.ca/floof/
+Shiba https://shibe.online/
+Raccoon https://api.eckigerluca.com/raccoon
+
+Error Codes https://http.dog/
