@@ -1,5 +1,4 @@
-Bear https://placebear.com/
-Kitten https://placekitten.com/
+Cat https://random.cat
 Dog https://random.dog/woof.json
 Duck https://random-d.uk/api
 Fox https://randomfox.ca/floof/
