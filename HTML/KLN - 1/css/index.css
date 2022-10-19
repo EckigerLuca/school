@@ -1,0 +1,32 @@
+@import "./bootstrap/bootstrap.css";
+
+:root {
+    --dark-grey: #36393f;
+    --light-grey: #36393f;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-color: var(--light-grey);
+    --bs-nav-tabs-link-hover-border-color: var(--light-grey) var(--light-grey) var(--dark-grey);
+    --bs-nav-tabs-link-active-color: white;
+    --bs-nav-tabs-link-active-bg: #212529;
+    --bs-nav-tabs-link-active-border-color: var(--light-grey) var(--light-grey) var(--bs-dark);
+    border-bottom: var(--bs-nav-tabs-border-width) solid var(--light-grey);
+}
+
+.nav-link {
+    color: #3dd5f3 !important;
+}
+.nav-link:hover, .nav-link:focus {
+    color: #0aa2c0 !important;
+}
+
+body {
+    /*background-color: #2c3035;*/
+    background-color: #36393f;
+}
+
+#mainContainer {
+    padding: 2rem;
+    background-color: var(--bs-dark);
+}

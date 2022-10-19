@@ -1,4 +1,4 @@
-Cat https://random.cat
+Cat http://random.cat
 Dog https://random.dog/woof.json
 Duck https://random-d.uk/api
 Fox https://randomfox.ca/floof/
