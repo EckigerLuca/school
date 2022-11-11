@@ -26,9 +26,16 @@ async function getDuck() {
     let duckImg = document.getElementById("duckImg");
     let duckImgSrc = document.getElementById("duckImgSrc");
 
-    const response = await fetch('https://random-d.uk/api/random?format=json');
+    async function getImg() {
+        const response = await fetch('https://safe-crag-02173.herokuapp.com/https://random-d.uk/api/random?format=json');
+        return await response.json().url
+    }
+    
+    while (String(await getImg()).includes('mp4')) {
+        alert('vid')
+    }
 
-    const data = (await response.json()).url;
+    const data = await getImg();
 
     duckImg.src = data;
     duckImgSrc.href = data;
