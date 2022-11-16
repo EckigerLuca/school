@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" height="500px" width="500px" style="background-color: lightgray;"></canvas>
+</body>
+<script>
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    
+    // y achse
+    ctx.moveTo(250, 0);
+    ctx.lineTo(250, 500);
+    ctx.stroke();
+
+    // pfeilspitze
+    ctx.moveTo(250, 0);
+    ctx.lineTo(240, 10);
+    ctx.stroke();
+
+    ctx.moveTo(250, 0);
+    ctx.lineTo(260, 10);
+    ctx.stroke();
+
+
+    // x-achse
+    ctx.moveTo(0, 250);
+    ctx.lineTo(500, 250);
+    ctx.stroke();
+
+    // pfeilspitze
+    ctx.moveTo(500, 250);
+    ctx.lineTo(490, 240);
+    ctx.stroke();
+
+    ctx.moveTo(500, 250);
+    ctx.lineTo(490, 260);
+    ctx.stroke();
+
+    // striche
+    for (i=1; i < 25; i++) {
+        // y-achse
+        ctx.moveTo(245, i*20);
+        ctx.lineTo(255, i*20);
+        ctx.stroke()
+
+        // x-achse
+        ctx.moveTo(i*20, 245);
+        ctx.lineTo(i*20, 255);
+        ctx.stroke();
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(125, 0)
+    ctx.quadraticCurveTo(250, 500, 250+125, 0);
+    ctx.stroke();
+
+</script>
+</html>
