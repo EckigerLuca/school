@@ -49,8 +49,10 @@
                             Kurze Erklärung:
                         </p></li>
                         <li style="margin-left: 1em; margin-top: -1em;"><p class="lead">
-                            Das hier ist ein Tierbild-Service. Nach auswählen der Kategorie kann man ein Bild anfordern <br>
+                            Das hier ist ein Tierbild-Service. Nach Auswählen der Kategorie kann man ein Bild anfordern <br>
                             Probieren geht über studieren ;)
+							<br>
+							Achso, es kann ein wenig dauern bis die Bilder geladen haben, dies hängt aber von der Internetleitung ab.
                         </p></li>
                     </ul>
 				</div>
@@ -111,6 +113,7 @@
                         <a href="" target="_blank" id="duckImgSrc">Source</a>
                     </div>
 				</div>
+
 				<div class="tab-pane fade p-3" id="fox-tab-pane" role="tabpanel" aria-labelledby="fox-tab" tabindex="0">
 					<figure>
                         <blockquote class="blockquote">
@@ -120,7 +123,16 @@
                             Bilder bereitgestellt durch <a style="color: #6c757d;" href="https://randomfox.ca" target="_blank" rel="noopener noreferrer">randomfox.ca</a>
                         </p>
                     </figure>
+
+					<div>
+                        <button class="btn btn-info mb-3" onclick="getFox()">Neues Bild</button>
+                        <br>
+                        <img src="" alt="Fuchs" class="img-fluid" id="foxImg">
+                        <br>
+                        <a href="" target="_blank" id="foxImgSrc">Source</a>
+                    </div>
 				</div>
+
 				<div class="tab-pane fade p-3" id="shiba-tab-pane" role="tabpanel" aria-labelledby="shiba-tab" tabindex="0">
 					<figure>
                         <blockquote class="blockquote">
@@ -130,7 +142,16 @@
                             Bilder bereitgestellt durch <a style="color: #6c757d;" href="https://shibe.online/" target="_blank" rel="noopener noreferrer">shibe.online</a>
                         </p>
                     </figure>
+
+					<div>
+                        <button class="btn btn-info mb-3" onclick="getShibe()">Neues Bild</button>
+                        <br>
+                        <img src="" alt="Shiba-Inu" class="img-fluid" id="shibeImg">
+                        <br>
+                        <a href="" target="_blank" id="shibeImgSrc">Source</a>
+                    </div>
 				</div>
+
 				<div class="tab-pane fade p-3" id="raccoon-tab-pane" role="tabpanel" aria-labelledby="raccoon-tab" tabindex="0">
 					<figure>
                         <blockquote class="blockquote">
@@ -140,6 +161,14 @@
                             Bilder bereitgestellt durch <a style="color: #6c757d;" href="https://api.eckigerluca.com/raccoon" target="_blank" rel="noopener noreferrer">mich (api.eckigerluca.com/raccoon)</a>
                         </p>
                     </figure>
+
+					<div>
+                        <button class="btn btn-info mb-3" onclick="getRaccoon()">Neues Bild</button>
+                        <br>
+                        <img src="" alt="Waschbär" class="img-fluid" id="raccoonImg">
+                        <br>
+                        <a href="" target="_blank" id="raccoonImgSrc">Source</a>
+                    </div>
 				</div>
 			</div>
 		</div>
