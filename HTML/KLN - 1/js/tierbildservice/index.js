@@ -8,7 +8,12 @@ async function getCat() {
         return (await response.json()).file;
     }
 
-	let data = await getImg();
+	let data;
+	try {
+		data = await getImg();
+	} catch (e) {
+		data = await getImg();
+	}
 
 	const videoFormats = ['mp4', 'webm', 'mkv', 'avi', 'mov']
 
