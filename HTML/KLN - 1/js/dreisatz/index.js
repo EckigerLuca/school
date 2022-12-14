@@ -45,7 +45,7 @@ function mehrfachpreis() {
 
     menge4.innerHTML = menge3;
 
-    let customPreis = menge3 * basispreis;
+    let customPreis = (menge3 * basispreis).toFixed(2);
 
     menge5.innerHTML = customPreis;
 }
