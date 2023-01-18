@@ -4,61 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Canvas</title>
+    <style>
+        center {
+            margin-top: 120px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            min-width: 60px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <canvas id="canvas" height="500px" width="500px" style="background-color: lightgray;"></canvas>
+    <center>
+        <canvas id="canvas" height="500px" width="500px" style="background-color: lightgray;"></canvas>
+
+        <table>
+            <tr>
+                <td>Zähler</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="zaehler" id="zaehler" size="2"></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="degInput" id="degInput" size="1" onchange="circleDegInput();" value="90">
+                    <label for="degInput">Winkel (in °)</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="text" name="nenner" id="nenner" size="2"></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Nenner</td>
+            </tr>
+        </table>
+    </center>
 </body>
 <script>
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
+    let degInput = document.getElementById('degInput');
+
+    function degToRad(degree) {
+        let factor = Math.PI / 180;
+        return degree * factor;
+    }
     
-    // y achse
-    ctx.moveTo(250, 0);
-    ctx.lineTo(250, 500);
-    ctx.stroke();
+    function mainGrid() {
+        ctx.beginPath();
+        // y achse
+        ctx.moveTo(250, 0);
+        ctx.lineTo(250, 500);
+        ctx.stroke();
 
-    // pfeilspitze
-    ctx.moveTo(250, 0);
-    ctx.lineTo(240, 10);
-    ctx.stroke();
+        // pfeilspitze
+        ctx.moveTo(250, 0);
+        ctx.lineTo(240, 10);
+        ctx.stroke();
 
-    ctx.moveTo(250, 0);
-    ctx.lineTo(260, 10);
-    ctx.stroke();
+        ctx.moveTo(250, 0);
+        ctx.lineTo(260, 10);
+        ctx.stroke();
 
-
-    // x-achse
-    ctx.moveTo(0, 250);
-    ctx.lineTo(500, 250);
-    ctx.stroke();
-
-    // pfeilspitze
-    ctx.moveTo(500, 250);
-    ctx.lineTo(490, 240);
-    ctx.stroke();
-
-    ctx.moveTo(500, 250);
-    ctx.lineTo(490, 260);
-    ctx.stroke();
-
-    // striche
-    for (i=1; i < 25; i++) {
-        // y-achse
-        ctx.moveTo(245, i*20);
-        ctx.lineTo(255, i*20);
-        ctx.stroke()
 
         // x-achse
-        ctx.moveTo(i*20, 245);
-        ctx.lineTo(i*20, 255);
+        ctx.moveTo(0, 250);
+        ctx.lineTo(500, 250);
+        ctx.stroke();
+
+        // pfeilspitze
+        ctx.moveTo(500, 250);
+        ctx.lineTo(490, 240);
+        ctx.stroke();
+
+        ctx.moveTo(500, 250);
+        ctx.lineTo(490, 260);
+        ctx.stroke();
+
+        // striche
+        for (i=1; i < 25; i++) {
+            // y-achse
+            ctx.moveTo(245, i*20);
+            ctx.lineTo(255, i*20);
+            ctx.stroke()
+
+            // x-achse
+            ctx.moveTo(i*20, 245);
+            ctx.lineTo(i*20, 255);
+            ctx.stroke();
+        }
+
+        // main circle
+        ctx.beginPath();
+        ctx.arc(250, 250, 230, 0, 2 * Math.PI, false);
+        ctx.stroke();
+    }
+    // K R E I S E
+    // doc 500pxx500px
+
+    // brüche darstellen -> Kreissektor der entsprechenden gradzahl evtl. mit farbe füllen
+
+    // circle with user input in °
+    function circleDegInput() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        mainGrid();
+        ctx.beginPath();
+        ctx.arc(250, 250, 125, 0, -degToRad(degInput.value), true);
         ctx.stroke();
     }
 
-    ctx.beginPath();
-    ctx.moveTo(125, 0)
-    ctx.quadraticCurveTo(250, 500, 250+125, 0);
-    ctx.stroke();
+    window.addEventListener('load', (event) => {
+        circleDegInput();
+    });
 
 </script>
 </html>
