@@ -64,6 +64,11 @@
         let factor = Math.PI / 180;
         return degree * factor;
     }
+
+	function radToDeg(rad) {
+		let factor = 180 / Math.PI;
+		return rad * factor;
+	}
     
     function mainGrid() {
         ctx.beginPath();

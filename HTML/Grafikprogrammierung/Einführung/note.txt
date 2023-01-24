@@ -1,0 +1,4 @@
+vielfaches von pi: pi * winkel/180, zb. pi * 90/180 = 1/2 pi
+
+von rad nach vielfaches:
+umrechnen in winkel: rad * 180/pi
