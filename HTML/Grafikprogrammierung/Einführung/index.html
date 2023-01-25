@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="math.js"></script>
     <title>Canvas</title>
     <style>
         center {
@@ -25,27 +26,27 @@
 <body>
     <center>
         <canvas id="canvas" height="500px" width="500px" style="background-color: lightgray;"></canvas>
-
+        <p>Teil vom Kreis (von 360°)</p>
         <table>
             <tr>
                 <td>Zähler</td>
                 <td></td>
             </tr>
             <tr>
-                <td><input type="text" name="zaehler" id="zaehler" size="2"></td>
+                <td><input type="text" name="zaehler" id="zaehler" size="2" onchange="zaehlerChange();"></td>
                 <td></td>
             </tr>
 
             <tr>
                 <td></td>
                 <td>
-                    <input type="text" name="degInput" id="degInput" size="1" onchange="circleDegInput();" value="90">
+                    <input type="text" name="degInput" id="degInput" size="3" onchange="circleDegInput();" value="90">
                     <label for="degInput">Winkel (in °)</label>
                 </td>
             </tr>
 
             <tr>
-                <td><input type="text" name="nenner" id="nenner" size="2"></td>
+                <td><input type="text" name="nenner" id="nenner" size="2" onchange="nennerChange();"></td>
                 <td></td>
             </tr>
 
@@ -59,6 +60,8 @@
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
     let degInput = document.getElementById('degInput');
+    let zaehler = document.getElementById('zaehler');
+    let nenner = document.getElementById('nenner');
 
     function degToRad(degree) {
         let factor = Math.PI / 180;
@@ -119,18 +122,40 @@
         ctx.arc(250, 250, 230, 0, 2 * Math.PI, false);
         ctx.stroke();
     }
-    // K R E I S E
-    // doc 500pxx500px
 
-    // brüche darstellen -> Kreissektor der entsprechenden gradzahl evtl. mit farbe füllen
-
-    // circle with user input in °
     function circleDegInput() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         mainGrid();
         ctx.beginPath();
         ctx.arc(250, 250, 125, 0, -degToRad(degInput.value), true);
+        ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+        ctx.lineTo(250, 250);
+        ctx.fill()
         ctx.stroke();
+
+        circlePartFractionCalculation();
+    }
+
+    function circlePartFractionCalculation() {
+        let partOfCircle = degInput.value / 360;
+        let fraction = math.fraction(`${degInput.value}/360`);
+
+        zaehler.value = fraction.n;
+        nenner.value = fraction.d;
+    }
+
+    function zaehlerChange() {
+        let factor = zaehler.value / nenner.value;
+        degInput.value = (factor * 360).toFixed(2);
+
+        circleDegInput();
+    }
+
+    function nennerChange() {
+        let factor = zaehler.value / nenner.value;
+        degInput.value = (factor * 360).toFixed(2);
+
+        circleDegInput();
     }
 
     window.addEventListener('load', (event) => {
