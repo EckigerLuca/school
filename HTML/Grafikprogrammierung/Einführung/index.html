@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="math.js"></script>
-    <title>Canvas</title>
+    <title>Koordinatensystem</title>
     <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
         center {
             margin-top: 120px;
         }
@@ -25,11 +28,11 @@
 </head>
 <body>
     <center>
-        <canvas id="canvas" height="500px" width="500px" style="background-color: lightgray;"></canvas>
-        <p>Teil vom Kreis (von 360°)</p>
+        <canvas id="canvas" height="500px" width="500px"></canvas>
+        <p>Teil vom Kreis (2&pi;)</p>
         <table>
             <tr>
-                <td>Zähler</td>
+                <td></td>
                 <td></td>
             </tr>
             <tr>
@@ -38,7 +41,7 @@
             </tr>
 
             <tr>
-                <td></td>
+                <td style="padding-left: 4em">&pi;</td>
                 <td>
                     <input type="text" name="degInput" id="degInput" size="3" onchange="circleDegInput();" value="90">
                     <label for="degInput">Winkel (in °)</label>
@@ -51,7 +54,7 @@
             </tr>
 
             <tr>
-                <td>Nenner</td>
+                <td></td>
             </tr>
         </table>
     </center>
@@ -67,11 +70,6 @@
         let factor = Math.PI / 180;
         return degree * factor;
     }
-
-	function radToDeg(rad) {
-		let factor = 180 / Math.PI;
-		return rad * factor;
-	}
     
     function mainGrid() {
         ctx.beginPath();
@@ -124,7 +122,7 @@
     }
 
     function circleDegInput() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRec1t(0, 0, canvas.width, canvas.height);
         mainGrid();
         ctx.beginPath();
         ctx.arc(250, 250, 125, 0, -degToRad(degInput.value), true);
@@ -137,11 +135,10 @@
     }
 
     function circlePartFractionCalculation() {
-        let partOfCircle = degInput.value / 360;
         let fraction = math.fraction(`${degInput.value}/360`);
 
-        zaehler.value = fraction.n;
-        nenner.value = fraction.d;
+        zaehler.value = fraction.n; // numerator = zaehler
+        nenner.value = fraction.d; // denominator = nenner
     }
 
     function zaehlerChange() {

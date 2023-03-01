@@ -1,0 +1,17 @@
+.child {
+    margin: auto;
+    margin-top: 10em;
+}
+
+#card {
+    border: 1px solid black;
+    margin: 1em;
+}
+
+.container {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+  }

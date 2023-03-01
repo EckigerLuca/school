@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartenstapel</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="child">
+            <p id="text">Knopf drücken um eine Karte zu ziehen</p>
+            <img src="" alt="Karte" id="card" style="display: none;">
+            <br>
+            <button onclick="drawCard()" id="button">Karte Ziehen</button>
+
+            <p id="drawnCardsText" style="display: none;">Bereits gezogene Karten:</p>
+            <ul id="drawn">
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
