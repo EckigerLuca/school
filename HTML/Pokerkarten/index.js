@@ -88,8 +88,48 @@ function drawCard() {
     card.src = `./cards/${randomCard}`
     let drawn = document.getElementById("drawn");
     let li = document.createElement("li");
-    li.appendChild(document.createTextNode(randomCard));
-    drawn.appendChild(li);
+    // get card name
+    let cardName = randomCard.split(".")[0];
+    // transform card name to german
+    let cardPartial = cardName.split("-");
+    let cardType = cardPartial[0];
+    let cardNumber = cardPartial[1];
+    switch (cardType) {
+        case "CLUB":
+            cardType = "Kreuz";
+            break;
+        case "DIAMOND":
+            cardType = "Karo";
+            break;
+        case "HEART":
+            cardType = "Herz";
+            break;
+        case "SPADE":
+            cardType = "Pik";
+            break;
+        case "JOKER":
+            cardType = "Joker";
+            break;
+    }
+    switch (cardNumber) {
+        case "1":
+            cardNumber = "Ass";
+            break;
+        case "11":
+            cardNumber = "Bube";
+            break;
+        case "12":
+            cardNumber = "Dame";
+            break;
+        case "13":
+            cardNumber = "König";
+            break;
+    }
+    cardName = `${cardType} ${cardNumber}`;
+    let textchild = document.createTextNode(cardName);
+    li.insertBefore(textchild, li.childNodes[0]);
+    drawn.insertBefore(li, drawn.childNodes[0]);
+    
 }
 
 // run on load
