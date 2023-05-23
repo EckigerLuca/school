@@ -5,7 +5,7 @@ import {
 } from "./updateCustomProperty.js";
 
 const villagerElem = document.querySelector("[data-villager]");
-const JUMP_SPEED = 0.38;
+const JUMP_SPEED = 0.41;
 const GRAVITY = 0.0019;
 const VILLAGER_FRAME_COUNT = 2;
 const FRAME_TIME = 100;
