@@ -1,6 +1,6 @@
 import { updateGround, setupGround } from "./ground.js";
-import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
-import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
+import { updateVillager, setupVillager, getVillagerRect, setVillagerLose } from "./villager.js";
+import { updateZombie, setupZombie, getZombieRects } from "./zombie.js";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -26,8 +26,8 @@ function update(time) {
 	const delta = time - lastTime;
 
 	updateGround(delta, speedScale);
-	updateDino(delta, speedScale);
-	updateCactus(delta, speedScale);
+	updateVillager(delta, speedScale);
+	updateZombie(delta, speedScale);
 	updateSpeedScale(delta);
 	updateScore(delta);
 	if (checkLose()) return handleLose();
@@ -37,8 +37,8 @@ function update(time) {
 }
 
 function checkLose() {
-	const dinoRect = getDinoRect();
-	return getCactusRects().some((rect) => isCollision(rect, dinoRect));
+	const villagerRect = getVillagerRect();
+	return getZombieRects().some((rect) => isCollision(rect, villagerRect));
 }
 
 function isCollision(rect1, rect2) {
@@ -64,14 +64,14 @@ function handleStart() {
 	speedScale = 1;
 	score = 0;
 	setupGround();
-	setupDino();
-	setupCactus();
+	setupVillager();
+	setupZombie();
 	startScreenElem.classList.add("hide");
 	window.requestAnimationFrame(update);
 }
 
 function handleLose() {
-	setDinoLose();
+	setVillagerLose();
 	setTimeout(() => {
 		document.addEventListener("keydown", handleStart, { once: true });
 		startScreenElem.classList.remove("hide");

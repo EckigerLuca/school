@@ -4,48 +4,48 @@ import {
 	getCustomProperty,
 } from "./updateCustomProperty.js";
 
-const dinoElem = document.querySelector("[data-dino]");
-const JUMP_SPEED = 0.45;
+const villagerElem = document.querySelector("[data-villager]");
+const JUMP_SPEED = 0.38;
 const GRAVITY = 0.0019;
-const DINO_FRAME_COUNT = 2;
+const VILLAGER_FRAME_COUNT = 2;
 const FRAME_TIME = 100;
 
 let isJumping;
-let dinoFrame;
+let villagerFrame;
 let currentFrameTime;
 let yVelocity;
-export function setupDino() {
+export function setupVillager() {
 	isJumping = false;
-	dinoFrame = 0;
+	villagerFrame = 0;
 	currentFrameTime = 0;
 	yVelocity = 0;
-	setCustomProperty(dinoElem, "--bottom", 0);
+	setCustomProperty(villagerElem, "--bottom", 13);
 	document.removeEventListener("keydown", onJump);
 	document.addEventListener("keydown", onJump);
 }
 
-export function updateDino(delta, speedScale) {
+export function updateVillager(delta, speedScale) {
 	handleRun(delta, speedScale);
 	handleJump(delta);
 }
 
-export function getDinoRect() {
-	return dinoElem.getBoundingClientRect();
+export function getVillagerRect() {
+	return villagerElem.getBoundingClientRect();
 }
 
-export function setDinoLose() {
-	dinoElem.src = "imgs/dino-lose.png";
+export function setVillagerLose() {
+	villagerElem.src = "imgs/villager-dead.png";
 }
 
 function handleRun(delta, speedScale) {
 	if (isJumping) {
-		dinoElem.src = `imgs/dino-stationary.png`;
+		villagerElem.src = `imgs/villager.png`;
 		return;
 	}
 
 	if (currentFrameTime >= FRAME_TIME) {
-		dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT;
-		dinoElem.src = `imgs/dino-run-${dinoFrame}.png`;
+		villagerFrame = (villagerFrame + 1) % VILLAGER_FRAME_COUNT;
+		villagerElem.src = `imgs/villager-run-${villagerFrame}.png`;
 		currentFrameTime -= FRAME_TIME;
 	}
 	currentFrameTime += delta * speedScale;
@@ -54,10 +54,10 @@ function handleRun(delta, speedScale) {
 function handleJump(delta) {
 	if (!isJumping) return;
 
-	incrementCustomProperty(dinoElem, "--bottom", yVelocity * delta);
+	incrementCustomProperty(villagerElem, "--bottom", yVelocity * delta);
 
-	if (getCustomProperty(dinoElem, "--bottom") <= 0) {
-		setCustomProperty(dinoElem, "--bottom", 0);
+	if (getCustomProperty(villagerElem, "--bottom") <= 13) {
+		setCustomProperty(villagerElem, "--bottom", 13);
 		isJumping = false;
 	}
 
