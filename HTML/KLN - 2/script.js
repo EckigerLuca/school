@@ -9,6 +9,7 @@ const SPEED_SCALE_INCREASE = 0.00001;
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
 const startScreenElem = document.querySelector("[data-start-screen]");
+const gameOverScreenElem = document.querySelector("[data-game-over]");
 
 setPixelToWorldScale();
 window.addEventListener("resize", setPixelToWorldScale);
@@ -67,6 +68,7 @@ function handleStart() {
 	setupVillager();
 	setupZombie();
 	startScreenElem.classList.add("hide");
+    gameOverScreenElem.classList.add("hide");
 	window.requestAnimationFrame(update);
 }
 
@@ -74,7 +76,7 @@ function handleLose() {
 	setVillagerLose();
 	setTimeout(() => {
 		document.addEventListener("keydown", handleStart, { once: true });
-		startScreenElem.classList.remove("hide");
+		gameOverScreenElem.classList.remove("hide");
 	}, 100);
 }
 
