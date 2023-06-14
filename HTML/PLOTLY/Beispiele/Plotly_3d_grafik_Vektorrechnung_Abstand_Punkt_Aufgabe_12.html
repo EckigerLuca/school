@@ -1,0 +1,315 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Variante 2 Punkte und Linien von jeweils Punkt zu Punkt auch eine Linie
+-->
+ 
+<body onload="displayObjects()">
+
+<div id="myPlot" style="width:100% "></div>
+
+
+
+<script>
+
+let ebene = "";
+
+function mitEbene()
+  {
+      ebene = "zeige";
+      displayObjects();
+  }
+  
+  function ohneEbene()
+  {
+      ebene = "";
+      displayObjects();
+  }
+ 
+  function mitS2()
+  {
+      ebene = "show2";
+      displayObjects();
+  }
+  
+ function mitS3()
+  {
+      ebene = "show3";
+      displayObjects();
+  }
+  
+ 
+
+  
+function displayObjects()
+
+{  
+var xmax = 6;
+var ymax = 6;
+var zmax = 6;
+
+
+var trace1 = {
+  x: [-2, 4, 10],
+  y: [2, 6, 10],
+  z: [0, 5, 10],
+  
+  mode: 'lines',
+  type: 'scatter3d',
+  marker: {
+    color: 'rgb(219, 64, 82)',
+    size: 4
+  }
+};
+
+var trace10 = {
+  x: [0, 4, 4, 0, 0, 0, 4, 4, 0, 4, 4, 4, 4],
+  y: [0, 0, 4, 4, 4, 0, 0, 4, 4, 4, 4, 0, 0],
+  z: [0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 4],
+  
+  mode: 'markers+lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(0, 0, 255)',
+    width: 2,
+  },
+    marker: {
+     color: 'rgb(0, 0, 255)',
+     size: 3
+  }
+};
+
+ 
+var trace11 = {
+  x: [4, 0 ],
+  y: [0, 4],
+  z: [0, 2],
+  
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(0, 128, 0)',
+    width: 5
+  }
+
+};
+
+
+var trace12 = {
+  x: [4, 3.11],
+  y: [0, 0.88],
+  z: [4, 0.44 ],
+  // 1. eckige Klammer x=0, y=0, z=0, || x=0, y=6 z=0
+  // 2. eckige Klammer: x = 6, y= 0, z=12, || x=6 y=6 z=12 
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color:  'rgb(0,200,200)',
+    width: 6,
+}
+};
+
+var trace2 = {
+  x: [-2, xmax, 5.5, 5.5 , xmax],
+  y: [0, 0, 0, 0, 0],
+  z: [0, 0, 0.2, -0.2, 0],
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 5
+  }
+};
+
+
+
+var trace3 = {
+  x: [0, 0, 0, 0, 0],
+  y: [-2, ymax, 5.5, 5.5, ymax],
+  z: [0, 0, 0.2, -0.2, 0],
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 5
+  }
+};
+
+var trace4 = {
+  x: [0, 0, 0.2, -0.2, 0],
+  y: [0, 0, 0, 0, 0],
+  z: [-2, zmax, 5.5, 5.5, zmax],
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 5
+  }
+};
+
+var trace5 = {
+  x: [0, 4, 4, 3.11],
+  y: [4, 0, 0, 0.88],
+  z: [2, 4, 0, 0.44],
+  mode: 'markers+text',
+  type: 'scatter3d',
+  text: ['M', 'E', 'A', 'LF'],
+  textposition: 'bottom',
+  type: 'scatter3d',
+    marker: {
+    color: 'rgb(219, 64, 82)',
+    size: 4
+  }
+};
+
+
+// Ebene Dachfläche als Trace 6
+
+var trace6 = {
+  x: [8, 4],
+  y: [8, 4],
+  z: [ [0,6], [6,12] ],
+  // 1. eckige Klammer x=0, y=0, z=0, || x=0, y=6 z=0
+  // 2. eckige Klammer: x = 6, y= 0, z=12, || x=6 y=6 z=12 
+  
+  type: 'surface',
+    colorscale:  ['rgb(0,200,200)', 'rgb(0,255,255)'],
+    showscale: false,
+    opacity: 0.75,
+};
+
+// Ebene e3 Symmetrie als Trace 7
+
+var trace7 = {
+  x: [10, -2],
+  y: [-2, 10],
+  z: [ [6, 6], [6,6] ],
+  // 1. eckige Klammer x=0, y=0, z=0, || x=0, y=6 z=0
+  // 2. eckige Klammer: x = 6, y= 0, z=12, || x=6 y=6 z=12 
+  
+  type: 'surface',
+    colorscale:  ['rgb(0,200,200)', 'rgb(0,255,255)'],
+    showscale: false,
+    opacity: 0.75,
+};
+
+// Ebene e2 Symmetrie als Trace 8 als linien
+
+var trace8 = {
+  x: [-2, 10, 10, -2 , -2 ], 
+  y: [-2, 10, 10, -2, -2 ],
+  z: [0, 0, 12, 12, 0 ],
+  // 1. eckige Klammer x=0, y=0, z=0, || x=0, y=6 z=0
+  // 2. eckige Klammer: x = 6, y= 0, z=12, || x=6 y=6 z=12 
+  
+  mode: 'lines',
+  type: 'scatter3d',
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 5
+  }
+};
+
+
+if (ebene =="") { 
+    var data = [trace2, trace3, trace4, trace10, trace11, trace12, trace5];
+    }
+    
+if (ebene =="zeige") { 
+    var data = [trace2, trace3, trace4, trace5, trace6];
+    }
+
+if (ebene =="show2") { 
+    var data = [trace1, trace2, trace3, trace4, trace5, trace8];
+    }
+    
+if (ebene =="show3") { 
+    var data = [trace1, trace2, trace3, trace4, trace5, trace7];
+    }
+    
+    var layout = {
+        autosize: true,
+        height: 800,
+        width: 800,
+        title: 'Abstand Punkt zu Gerade',
+        showlegend: false,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x1 (x) Achse',
+                range: [-2, xmax]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x2 (y) Achse',
+                range: [-2, ymax]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x3 (z) Achse',
+                range: [-2, zmax]
+                },
+             
+                     annotations: [
+    {
+        x: 3.55,
+        y: 0.44,
+        z: 2.22,
+        text: "Abstand Punkt E - Gerade AM",
+        textangle: 0,
+        ax: 50,
+        ay:  -100,
+        az:  150,
+        font: {
+          color:  'rgb(0,200,200)',
+          size: 12
+        },
+        arrowcolor:  'rgb(0,200,200)',
+        arrowsize: 2,
+        arrowwidth: 1,
+        arrowhead: 2
+     }
+  ],
+
+    }
+    }
+    
+Plotly.newPlot("myPlot", data, layout);
+
+}
+
+</script>
+
+
+</body>
+</html>

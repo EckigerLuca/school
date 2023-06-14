@@ -1,0 +1,194 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Pyramide berechnen volumen einer Pyramide berechnen 
+-->
+ 
+<body>
+
+<div id="myPlot2pyr" style="width:100% "></div>
+
+<script >
+
+// Generating random data..
+
+
+function show_pyramid_level(wert)
+{
+
+a=[]; b=[]; c=[]; 
+  
+// Plotting the mesh
+
+var boden =
+    {
+      opacity:0.8,
+      color:'rgb(200,0,0)',
+
+      type: 'mesh3d',
+ //     mode: 'lines',
+ //     type: 'scatter3d',
+      x: [0, 80, 80, 0, 0],
+      y: [0, 0, 80, 80, 0], 
+      z: [0, 0, 0, 0, 0]
+    }
+
+ var anzahl_ebenen = wert;
+ var hoehe = 100/anzahl_ebenen;
+
+ for(i=0; i< anzahl_ebenen ; i++)
+  {
+    for(j=0; j< hoehe ; j++)
+  {
+    var a1_ =  i*(40/anzahl_ebenen); 
+    var a2_ = 80 - i*(40/anzahl_ebenen); 
+    
+    a.push(a1_);
+    a.push(a2_);
+    a.push(a2_);
+    a.push(a1_);
+    a.push(a1_);
+    
+    var b1_ =  i*(40/anzahl_ebenen); 
+    var b2_ = 80 - i*(40/anzahl_ebenen) ; 
+    
+    b.push(b1_);
+    b.push(b1_);  
+    b.push(b2_);
+    b.push(b2_);
+    b.push(b1_); 
+    
+   var c_ =  i * hoehe + j;
+       
+    c.push(c_);
+    c.push(c_);
+    c.push(c_);
+    c.push(c_);
+    c.push(c_);
+    
+     }
+  }
+  
+  
+  var stufen =
+    {
+      opacity:0.8,
+      color:'rgb(200,0,0)',
+
+     mode: 'lines',
+     type: 'scatter3d',
+     
+      x: a,
+      y: b,
+      z: c,
+        line: {
+       width: 3,
+       opacity:0.8,
+       color:'rgb(0,100,240)',
+    }
+ }
+
+
+
+
+var seite1 =
+    {
+      opacity:0.8,
+      color:'rgb(51,200,51)',
+      width:8,
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [40, 40],
+      y: [40, 40],
+      z: [0, 100],
+       line: {
+       width: 4,
+       color:'rgb(0,0,240)',
+      }
+    }
+
+
+    
+       
+var data2pyr = [boden, stufen, seite1];
+
+    var layout2pyr = {
+        autosize: true,
+        height: 650,
+        width: 650,
+        showlegend: false,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x',
+                range: [0, 100]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'y',
+                range: [0, 100]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'z',
+                range: [0, 100]
+                }
+                
+        },
+        
+        title: 'Pyramide - Näherung als gestapelte Quader',
+    };
+
+
+
+Plotly.newPlot('myPlot2pyr', data2pyr, layout2pyr , {displayModeBar: false});
+
+}
+
+show_pyramid_level(5);
+
+</script>
+
+   <input type="radio" id="option1" name="options" value="5" onchange="show_pyramid_level(this.value)" checked>
+    <label for="option1">5 Ebenen</label><br>
+    <input type="radio" id="option2" name="options" value="10" onchange="show_pyramid_level(this.value)">
+    <label for="option2">10 Ebenen</label><br>
+    <input type="radio" id="option3" name="options" value="15" onchange="show_pyramid_level(this.value)">
+    <label for="option3">15 Ebenen </label><br>
+    <input type="radio" id="option4" name="options" value="50" onchange="show_pyramid_level(this.value)">
+    <label for="option4">50 Ebenen</label><br>
+
+
+</body>
+</html>

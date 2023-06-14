@@ -1,0 +1,258 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Variante 2 Punkte und Linien von jeweils Punkt zu Punkt auch eine Linie
+-->
+ 
+<body>
+
+<div id="myPlot" style="width:100% "></div>
+
+<script>
+
+var radius = 50;
+
+// Generating random data..
+
+a=[]; b=[]; c=[]; d=[]; e=[];f=[]; g=[]; h=[]; j=[];
+  
+// Plotting the mesh
+
+var dreieck1 =
+    {
+      opacity:0.8,
+      color:'rgb(200,0,0)',
+
+      type: 'mesh3d',
+ //     mode: 'lines',
+ //     type: 'scatter3d',
+      x: [20, 60, 20, 20 ],
+      y: [0, 40, 80, 0], 
+      z: [0, 0, 0, 0]
+    }
+
+
+var dreieck2 =
+    {
+      opacity:0.8,
+      color:'rgb(0,0,255)',
+
+      type: 'mesh3d',
+ //     mode: 'lines',
+ //     type: 'scatter3d',
+      x: [20, 60, 20, 20 ],
+      y: [0, 40, 80, 0], 
+      z: [80, 80, 80, 80]
+    }
+
+
+  for(i=0;i<80;i++)
+  {
+     a.push(20);
+     b.push(0)
+     c.push(i);
+     a.push(60);
+     b.push(40)
+     c.push(i);
+  }
+  
+   for(i=0;i<80;i++)
+  {
+     d.push(60);
+     e.push(40)
+     f.push(i);
+     d.push(20);
+     e.push(80)
+     f.push(i);
+  } 
+  
+ for(i=0;i<80;i++)
+  {
+     g.push(60);
+     h.push(40)
+     j.push(i);
+     g.push(20);
+     h.push(80)
+     j.push(i);
+  } 
+  
+var mantel1 =
+{
+      mode: 'lines',
+      type: 'scatter3d',
+
+       opacity: 0.8,
+
+      x: a,
+      y: b, 
+      z: c,
+  
+      line: {
+     opacity: 0.5,
+     color: 'rgb(255, 255, 51)',
+     width: 1,
+  }     
+}
+
+var mantel2 =
+{
+      mode: 'lines',
+      type: 'scatter3d',
+
+       opacity: 0.8,
+
+      x: d,
+      y: e, 
+      z: f,
+  
+      line: {
+     opacity: 0.5,
+     color: 'rgb(255, 255, 51)',
+     width: 1,
+  }     
+}
+
+var mantel3 =
+{
+      mode: 'lines',
+      type: 'scatter3d',
+
+       opacity: 0.8,
+
+      x: g,
+      y: h, 
+      z: j,
+  
+      line: {
+     opacity: 0.5,
+     color: 'rgb(255, 255, 51)',
+     width: 1,
+  }     
+}
+
+
+
+var seite1 =
+    {
+      opacity:0.8,
+      color:'rgb(51,200,51)',
+      width:8,
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [20, 20],
+      y: [0, 0],
+      z: [0, 80],
+       line: {
+       width: 4,
+       color:'rgb(51,200,51)',
+      }
+    }
+
+var seite2 =
+    {
+      opacity:0.8,
+      color:'rgb(0,100,200)',
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [60, 60],
+      y: [40,40],
+      z: [0, 80],
+      
+        line: {
+       width: 4,
+       color:'rgb(51,200,51)',
+      }
+    }
+    
+    var  seite3 =
+    {
+      opacity:0.8,
+      color:'rgb(100,10,200)',
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [20, 20],
+      y: [80, 80],
+      z: [0, 80],
+      
+       line: {
+       width: 4,
+        color:'rgb(51,200,51)',
+      }
+    }
+
+var data = [dreieck1, mantel1, mantel2, mantel3, seite1, seite2, seite3, dreieck2];
+
+    var layout = {
+        autosize: true,
+        height: 650,
+        width: 650,
+        showlegend: false,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x',
+                range: [0, 100]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'y',
+                range: [0, 100]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'z',
+                range: [0, 120]
+                }
+                
+        },
+        
+        title: 'Dreieckprisma',
+    };
+
+
+
+
+
+Plotly.newPlot('myPlot', data, layout , {displayModeBar: false});
+
+</script>
+
+
+
+</body>
+</html>

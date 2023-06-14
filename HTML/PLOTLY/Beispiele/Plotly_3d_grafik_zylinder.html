@@ -1,0 +1,197 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Variante 2 Punkte und Linien von jeweils Punkt zu Punkt auch eine Linie
+-->
+ 
+<body>
+
+<div id="myPlot" style="width:100% "></div>
+
+<script>
+
+var radius = 50;
+
+// Generating random data..
+
+a=[]; b=[]; c=[]; d=[];
+
+for(i=0;i<360;i++)
+  {
+    var a_ = radius * Math.sin( i * Math.PI /180); 
+    a.push(a_);
+    
+    var b_ = radius * Math.cos( i * Math.PI /180); 
+    b.push(b_);
+    
+    var c_ = 0;
+    c.push(c_);
+    
+    var d_ = 100;
+    d.push(d_);
+    
+  }
+  
+// Plotting the mesh
+
+var kreis1 =
+    {
+      opacity:0.8,
+      color:'rgb(300,100,200)',
+
+      type: 'mesh3d',
+      
+      x: a,
+      y: b,
+      z: c,
+    }
+
+
+var kreis2 =
+    {
+      opacity:0.8,
+      color:'rgb(0,0,200)',
+      
+
+      type: 'mesh3d',
+
+      x: a,
+      y: b,
+      z: d,
+    }
+
+var mitte =
+    {
+
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [0,0],
+      z: [0, 100],
+      line: {
+      opacity:0.8,
+      color:'rgb(240,0,0)',
+      width: 6,
+      }
+    }
+
+var seite1 =
+    {
+
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [radius,radius],
+      z: [0, 100],
+      
+         line: {
+         width: 6,
+        opacity:0.8,
+        color:'rgb(0,100,200)',
+
+      }
+    }
+
+var seite2 =
+    {
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [-radius,-radius],
+      z: [0, 100],
+    line: {
+         width: 6,
+        opacity:0.8,
+        color:'rgb(0,100,200)',
+        }
+    }
+    
+    var diagonale =
+    {
+
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [radius,-radius],
+      z: [0, 100],
+      line: {
+             opacity:0.8,
+            color:'rgb(100,10,200)',
+           width: 6,  
+      }
+
+    }
+
+var data = [kreis1, kreis2, mitte, seite1, seite2, diagonale];
+
+var layout = {
+        autosize: true,
+        height: 650,
+        width: 650,
+        showlegend: false,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x1',
+                range: [-60, 60]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x2',
+                range: [-60, 60]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: '',
+                range: [0, 120]
+                }
+                
+        },
+        
+        title: 'Der Zylinder ',
+    };
+
+
+Plotly.newPlot('myPlot', data, layout, {displayModeBar: false});
+
+</script>
+
+
+
+</body>
+</html>

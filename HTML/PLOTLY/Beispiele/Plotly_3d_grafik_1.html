@@ -1,0 +1,113 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Variante 1 Punkte und Linien von jeweils Punkt zu Punkt auch eine Linie
+-->
+ 
+<body>
+
+<div id="myPlot" style="width:100% "></div>
+
+<script>
+
+var xArray = [0, 6, 6, 0, 0, 3, 6, 6, 3, 0 ];
+var yArray = [0, 0, 6, 6, 0, 3, 0, 6, 3, 6];
+var zArray = [0, 0, 0, 0, 0, 6, 0, 0, 6, 0];
+
+
+ d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/alpha_shape.csv', function(err, rows)
+ {
+   function unpack(rows, key) {
+        return rows.map(function(row) { return row[key]; });
+    }
+
+
+    var data = [{
+        x: xArray,
+        y: yArray,
+        z: zArray,
+        mode: 'lines+markers',
+        type: 'scatter3d',
+ //         type: 'surface',
+        marker: {
+          color: 'rgb(23, 190, 207)',
+          size: 5
+        }
+    }
+
+      
+    ];
+    
+    
+
+    var layout = {
+        autosize: true,
+        height: 480,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x1 Achse',
+                range: [0, 10]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x2 Achse',
+                range: [0, 10]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x3 Achse',
+                range: [0, 10]
+                }
+        },
+        
+        title: '3d Punkte zeichnen',
+        width: 477
+    };
+    
+// Display using Plotly
+Plotly.newPlot("myPlot", data, layout);
+
+});
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

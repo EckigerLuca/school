@@ -1,0 +1,227 @@
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+<!--
+Variante 2 Punkte und Linien von jeweils Punkt zu Punkt auch eine Linie
+-->
+ 
+<body>
+
+<div id="myPlot" style="width:100% "></div>
+
+<script>
+
+var radius = 40;
+
+// Generating random data..
+
+a=[]; b=[]; c=[]; d=[]; e=[];f=[];
+
+for(i=0;i<360;i++)
+  {
+    var a_ = radius * Math.sin( i * Math.PI /180); 
+    a.push(a_);
+    
+    var b_ = radius * Math.cos( i * Math.PI /180); 
+    b.push(b_);
+    
+    var c_ = 0;
+    c.push(c_);
+    
+  }
+
+
+for(i=0;i<180 ;i++)
+  {
+    for (j=0; j<360; j++)
+    {
+    var d_ = radius * Math.sin( i * Math.PI/180) * Math.sin( j * Math.PI /180); 
+    d.push(d_);
+    
+    var e_ = radius * Math.sin( i * Math.PI/180)  * Math.cos( j * Math.PI /180); 
+    e.push(e_);
+    
+    var f_ = radius * Math.cos( i* Math.PI/180);
+    f.push(f_);
+    }
+  }
+
+ // Plotting the mesh
+
+var kreis1 =
+    {
+      opacity:0.8,
+      color:'rgb(200,0,0)',
+
+       type: 'mesh3d',
+      
+      x: a,
+      y: b,
+      z: c,
+    }
+
+
+var kreis2 =
+    {
+      opacity:0.5,
+      color: 'rgb(255, 255, 51)',
+      
+       mode: 'lines',
+       type: 'scatter3d',
+
+      x: c,
+      y: a,
+      z: b,
+    }
+    
+    var kreis3 =
+    {
+      opacity:0.5,
+      color: 'rgb(255, 255, 51)',
+      
+       mode: 'lines',
+       type: 'scatter3d',
+
+      x: a,
+      y: c,
+      z: b,
+    }
+
+var mantel =
+{
+mode: 'lines',
+type: 'scatter3d',
+opacity: 0.8,
+    x: d,
+    y: e,
+    z: f,
+      line: {
+     opacity: 0.5,
+     color: 'rgb(255, 255, 51)',
+     width: 1,
+  }
+}
+
+var mitte =
+    {
+      opacity:0.8,
+
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [0, 0],
+      z: [-radius, radius],
+       line: {
+       width: 6,
+       color:'rgb(51,200,51)',
+       
+      }
+    }
+
+var seite1 =
+    {
+      opacity:0.8,
+      color:'rgb(51,200,51)',
+      width:8,
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [0, 0],
+      y: [radius,-radius],
+      z: [0, 0],
+       line: {
+       width: 6,
+       color:'rgb(51,200,51)',
+      }
+    }
+
+var seite2 =
+    {
+      opacity:0.8,
+      
+      mode: 'lines',
+      type: 'scatter3d',
+
+      x: [-radius, radius],
+      y: [0 ,0],
+      z: [0, 0],
+      
+        line: {
+       width: 6,
+       color:'rgb(51,200,51)',
+      }
+    }
+    
+  var data = [mantel, kreis2, kreis1, kreis3, mitte,  seite1, seite2];
+
+    var layout = {
+        autosize: true,
+        height: 650,
+        width: 650,
+        showlegend: false,
+        scene: {
+            aspectratio: {
+                x: 1,
+                y: 1,
+                z: 1
+            },
+            camera: {
+                center: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                },
+                eye: {
+                    x: 1.25,
+                    y: 1.25,
+                    z: 1.25
+                },
+                up: {
+                    x: 0,
+                    y: 0,
+                    z: 1
+                }
+            },
+            
+            xaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'x',
+                range: [-50, 50]
+            },
+            
+            yaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'y',
+                range: [-50, 50]
+            },
+            
+            zaxis: {
+                type: 'linear',
+                zeroline: false,
+                title: 'z',
+                range: [-50, 50]
+                }
+                
+        },
+        
+        title: 'Die Kugel ',
+    };
+
+
+
+
+
+Plotly.newPlot('myPlot', data, layout, {displayModeBar: false});
+
+</script>
+
+
+
+</body>
+</html>
